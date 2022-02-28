@@ -12,6 +12,7 @@ services:
       - DEFAULT_WORKSPACE=/config/workspace 
     volumes:
       - /home/sali/code/config:/config
+      - /home:/home
     ports:
       - 8443:8443
     restart: unless-stopped
