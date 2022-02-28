@@ -6,7 +6,7 @@ RUN apt-get install -y openjdk-11-jdk-headless
 RUN pip3 install --upgrade pip
 RUN pip3 install pyspark
 RUN pip3 install pandas
-RUN apt-get install libmariadb3 libmariadb-dev -y
+RUN apt-get install -y libmariadb3 libmariadb-dev 
 RUN pip3 install mariadb
 RUN pip3 install install-jdk
 
