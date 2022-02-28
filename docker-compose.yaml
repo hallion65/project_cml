@@ -1,0 +1,91 @@
+version: "2.1"
+services:
+  code-server:
+    image: lscr.io/linuxserver/code-server
+    container_name: code-server
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Prague
+      - PASSWORD=saliman
+      - SUDO_PASSWORD=saliman
+      - DEFAULT_WORKSPACE=/config/workspace 
+    volumes:
+      - /home/sali/code/config:/config
+    ports:
+      - 8443:8443
+    restart: unless-stopped
+  
+  syncthing:
+    image: linuxserver/syncthing
+    container_name: syncthing
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Prague
+      - UMASK=022
+    volumes:
+      - /home/sali/syncthing/config:/config
+      - /home/sali/projekty:/projekty
+    ports:
+      - 8384:8384
+      - 22000:22000
+      - "21027:21027/udp"
+    restart: unless-stopped
+  
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/sali/portainer_data:/data
+    ports: [9000:9000]
+    restart: unless-stopped  
+  
+  mariadb:
+    image: linuxserver/mariadb
+    container_name: mariadb
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - MYSQL_ROOT_PASSWORD=saliman
+      - TZ=Europe/Prague
+    volumes:
+      - /home/sali/mariadb:/config
+    ports:
+      - 3306:3306
+    restart: unless-stopped 
+  
+  phpmyadmin:
+    image: ebspace/armhf-phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Prague
+      - PMA_ARBITRARY=1
+      - PMA_HOST=192.168.99.46
+      - PMA_PORT=3306
+      - PMA_USER=root
+      - PMA_PASSWORD=saliman
+    ports:
+      - 8085:80
+    volumes:
+      - /home/sali/phpmyadmin:/etc/phpmyadmin/config.user.inc.php
+    restart: unless-stopped
+
+  jupyterlab:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jupyterlab
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Prague
+    volumes:
+      - /home/sali/jupyterlab:/opt/app/data
+      - /home:/home
+    ports: [8888:8888]
+    restart: unless-stopped
+ 
