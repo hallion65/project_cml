@@ -88,5 +88,6 @@ services:
       - /home/sali/jupyterlab:/opt/app/data
       - /home:/home
     ports: [8888:8888]
+    command: /bin/sh -c jupyter lab --port=8888 --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.token=saliman --NotebookApp.password=saliman
     restart: unless-stopped
  
