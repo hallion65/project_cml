@@ -47,7 +47,7 @@ sudo systemctl enable --quiet docker
 printf " Hotovo.\n";
 
 printf "Spusteni docker-compose...\n";
-cd /home/sali/server_install
+cd /home/sali/project_cml
 docker-compose up
 
 
