@@ -10,6 +10,7 @@ RUN pip3 install ipywidgets
 RUN apt-get install -y libmariadb3 libmariadb-dev 
 RUN pip3 install mariadb
 RUN pip3 install PyMySQL
+RUN pip3 install jupyterlab-git
 RUN pip3 install install-jdk
 RUN apt-get install -y git
 
