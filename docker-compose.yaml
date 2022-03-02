@@ -82,11 +82,11 @@ services:
     volumes:
       - jupytercache:/home/jupyterlab
     environment:
-      SERVICE_NAME: jupyterlab
-      TZ: Europe/Prague
-      TOKEN: a12345b
-      PASSWORD: saliman
-      PORT: 8888
+      - SERVICE_NAME=jupyterlab
+      - TZ=Europe/Prague
+      - TOKEN=a12345b
+      - PASSWORD=saliman
+      - PORT=8888
     ports:
       - 8888:8888
 
