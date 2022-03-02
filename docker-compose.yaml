@@ -77,7 +77,10 @@ services:
     
   jupyterlab:
     image: hallion65/jupyterlab
-    container_name: jupyterlab    
+    container_name: jupyterlab
+    restart: unless-stopped
+    volumes:
+      - jupytercache:/home/jupyterlab
     environment:
       SERVICE_NAME: jupyterlab
       TZ: Europe/Prague
@@ -86,12 +89,10 @@ services:
       PORT: 8888
     ports:
       - 8888:8888
-    volumes:
-      - jupytercache:/home/jupyterlab
-    restart: unless-stopped
-    
+
 volumes:
   jupytercache:
+
 
 
  
