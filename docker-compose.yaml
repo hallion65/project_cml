@@ -74,6 +74,19 @@ services:
     volumes:
       - /home/sali/phpmyadmin:/etc/phpmyadmin/config.user.inc.php
     restart: unless-stopped
+
+  crontab-ui:
+    image: donaldrich/crontab-ui:latest
+    container_name: crontab-ui
+    environment:
+        - CRON_DB_PATH=/home/sali/crontab-ui
+        - BASIC_AUTH_USER=sali
+        - BASIC_AUTH_PWD=saliman
+    ports:
+        - 8889:8000
+    volumes:
+        - /home/sali/crontab-ui:/home/sali/crontab-ui
+    restart: unless-stopped
     
   jupyterlab:
     image: hallion65/jupyterlab
