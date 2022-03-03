@@ -32,6 +32,7 @@ RUN pip3 install jupyterlab
 RUN pip3 install -U pyvisa-py
 RUN pip3 install numpy
 RUN pip3 install pandas
+RUN pip3 install pyspark
 RUN pip3 install sympy
 RUN pip3 install psycopg2-binary
 RUN pip3 install pyTelegramBotAPI
@@ -39,6 +40,7 @@ RUN pip3 install plotly
 RUN pip3 install ipywidgets>=7.6
 RUN pip3 install jupyter-dash jupyterlab-dash
 RUN pip3 install mariadb
+RUN pip3 install ipython-sql
 RUN pip3 install PyMySQL
 RUN pip3 install jupyterlab-git
 RUN pip3 install install-jdk
