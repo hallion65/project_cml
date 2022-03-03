@@ -1,4 +1,4 @@
-Creation of my own docker image for Jupyterlab
+Creation of my own docker image for Jupyterlab. I based this on docker-compose and Dockerfile from @silaskalmbach
 
 Notes:
 
