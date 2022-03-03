@@ -86,6 +86,7 @@ services:
         - 8889:8000
     volumes:
         - /home/sali/crontab-ui:/home/sali/crontab-ui
+        - /home:/home
     restart: unless-stopped
     
   jupyterlab:
