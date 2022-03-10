@@ -22,4 +22,7 @@ Dowload config_server.sh and docker-compose.yml to directory where you want to r
   5) phpmyadmin
   6) Jupyterlab
 
+Testing: Apache Airflow, Grafana
+
 ## Syncthing
+ More info soon
