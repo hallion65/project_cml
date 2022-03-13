@@ -5,6 +5,7 @@ RUN apt-get update && apt-get upgrade -y
 
 # install basic packages
 RUN apt-get install nano
+RUN apt-get install cron
 RUN apt-get install -y tzdata
 RUN apt-get install -y curl
 RUN apt-get install -y git
@@ -14,8 +15,7 @@ RUN apt-get install -y openjdk-11-jdk-headless
 RUN curl -sSL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 
-RUN mkdir /home/jupyterlab
-WORKDIR /home/jupyterlab
+WORKDIR /home/sali/jupyterlab
 
 # install python and dependencies
 RUN apt-get install -y python3 python3-pip libatlas-base-dev wget gfortran libhdf5-dev libc-ares-dev libeigen3-dev libopenblas-dev libblas-dev liblapack-dev 

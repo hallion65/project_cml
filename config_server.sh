@@ -22,7 +22,6 @@ sudo mkdir /home/sali/jupyterlab
 sudo mkdir /home/sali/nginx
 sudo mkdir /home/sali/code
 sudo mkdir /home/sali/dockers
-sudo mkdir /home/sali/crontab-ui
 
 sudo chown -R sali: /home/sali/projekty
 sudo chown -R sali: /home/sali/mariadb
@@ -32,7 +31,6 @@ sudo chown -R sali: /home/sali/jupyterlab
 sudo chown -R sali: /home/sali/nginx
 sudo chown -R sali: /home/sali/code
 sudo chown -R sali: /home/sali/dockers
-sudo chown -R sali: /home/sali/crontab-ui
 printf " Hotovo.\n";
 
 printf "Instalace a nastaveni samba...\n";
