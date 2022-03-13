@@ -31,7 +31,6 @@ RUN pip3 install jupyterlab
 # install custom packages
 RUN pip3 install -U pyvisa-py
 RUN pip3 install numpy
-RUN pip3 install pandas
 RUN pip3 install pyspark
 RUN pip3 install sympy
 RUN pip3 install psycopg2-binary
@@ -45,6 +44,7 @@ RUN pip3 install PyMySQL
 RUN pip3 install jupyterlab-git
 RUN pip3 install install-jdk
 RUN pip3 install bash_kernel
+RUN cp ./mysql-connector-java-8.0.28.jar /usr/local/lib/python3.8/dist-packages/pyspark/jars/mysql-connector-java-8.0.28.jar
 RUN git clone https://github.com/frankfliu/IJava.git
 RUN cd IJava/ && ./gradlew installKernel && cd .. && rm -rf IJava/
 RUN rm -rf ~/.gradle
